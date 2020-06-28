@@ -52,17 +52,18 @@ export default class FootballMatchesData extends Component {
         </ul>
         <section className="content">
           {
-            this.state.totalMatches > 0 &&
+            this.state.totalMatches ?
             <section>
               <div className="total-matches" data-testid="total-matches">Total matches: { this.state.totalMatches }</div>
               <ul className="mr-20 matches styled" id="match-list" data-testid="match-list">
-                {this.state.resolvedArr.map(item => (
-                  <li className="slide-up-fade-in" key={item}> Match { item.name } won by { item.winner } </li>
+                {this.state.resolvedArr.map((item, index) => (
+                  <li className="slide-up-fade-in" key={index}> Match { item.name } won by { item.winner } </li>
                 ))}
               </ul>
             </section>
+            :
+            <div data-testid="no-result" className="slide-up-fade-in no-result">No Matches Found</div>
           }
-          <div data-testid="no-result" className="slide-up-fade-in no-result">No Matches Found</div>
         </section>
       </div>
     );
