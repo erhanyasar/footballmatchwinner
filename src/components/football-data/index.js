@@ -52,7 +52,7 @@ export default class FootballMatchesData extends Component {
         </ul>
         <section className="content">
           {
-            this.state.totalMatches ?
+            this.state.totalMatches > 0 &&
             <section>
               <div className="total-matches" data-testid="total-matches">Total matches: { this.state.totalMatches }</div>
               <ul className="mr-20 matches styled" id="match-list" data-testid="match-list">
@@ -61,7 +61,9 @@ export default class FootballMatchesData extends Component {
                 ))}
               </ul>
             </section>
-            :
+          }
+          {
+            this.state.selectedYear && this.state.totalMatches == 0 &&
             <div data-testid="no-result" className="slide-up-fade-in no-result">No Matches Found</div>
           }
         </section>
