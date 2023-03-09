@@ -63,7 +63,7 @@ export default class FootballMatchesData extends Component {
             </section>
           }
           {
-            this.state.selectedYear && this.state.totalMatches == 0 &&
+            this.state.selectedYear && this.state.totalMatches === 0 &&
             <div data-testid="no-result" className="slide-up-fade-in no-result">No Matches Found</div>
           }
         </section>
